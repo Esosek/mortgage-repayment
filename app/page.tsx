@@ -1,4 +1,4 @@
-import Form from "@/components/Form";
+import Form from "@/components/form/Form";
 import Results from "@/components/Results";
 
 export default function Home() {

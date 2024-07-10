@@ -4,6 +4,7 @@ import SubmitButton from "./SubmitButton";
 
 import iconCalculator from "@/assets/images/icon-calculator.svg";
 import Image from "next/image";
+import FormHeader from "./FormHeader";
 
 export default function Form() {
   function handleSubmit(e: FormEvent) {
@@ -16,15 +17,7 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit} className="px-8">
-      <div className="flex justify-between items-center my-8">
-        <h1 className="font-bold text-lg">Mortgage Calculator</h1>
-        <button
-          onClick={handleClearForm}
-          className="text-sm underline text-slate-700 hover:text-slate-900"
-        >
-          Clear All
-        </button>
-      </div>
+      <FormHeader handleClearForm={handleClearForm} />
       <SubmitButton>
         <Image src={iconCalculator} alt="Calculator icon" />
         Calculate Repayments
