@@ -6,6 +6,7 @@ import iconCalculator from "@/assets/images/icon-calculator.svg";
 import Image from "next/image";
 import FormHeader from "./FormHeader";
 import CustomNumberInput from "./CustomNumberInput";
+import MortgageTypeInput from "./MortgageTypeInput";
 
 export default function Form() {
   function handleSubmit(e: FormEvent) {
@@ -50,6 +51,8 @@ export default function Form() {
           Interest Rate
         </CustomNumberInput>
       </div>
+
+      <MortgageTypeInput />
 
       <SubmitButton>
         <Image src={iconCalculator} alt="Calculator icon" />
