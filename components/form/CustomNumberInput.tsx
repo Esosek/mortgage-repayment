@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import InputLable from "./InputLabel";
 
 type CustomNumberInputProps = {
   children: ReactNode;
@@ -19,10 +20,8 @@ export default function CustomNumberInput({
 }: CustomNumberInputProps) {
   return (
     <div className="my-4 md:my-2">
-      <label htmlFor={name} className="text-sm text-slate-700">
-        {children}
-      </label>
-      <div className="flex border-[1px] border-slate-500 rounded-md overflow-clip mt-2">
+      <InputLable for={name}>{children}</InputLable>
+      <div className="flex border-[1px] border-slate-500 rounded-md overflow-clip">
         <p
           className={`${
             isMetricLeft ? "" : "order-2"
