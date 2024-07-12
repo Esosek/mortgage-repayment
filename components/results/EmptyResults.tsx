@@ -4,7 +4,7 @@ import calcImage from "@/assets/images/illustration-empty.svg";
 
 export default function EmptyResults() {
   return (
-    <div className="h-full text-center flex flex-col justify-center items-center p-8">
+    <div className="h-full text-center flex flex-col justify-center items-center py-8 px-6 md:p-8">
       <Image
         src={calcImage}
         alt="Illustration of empty calculator"

@@ -4,11 +4,11 @@ import EmptyResults from "@/components/results/EmptyResults";
 
 export default function Home() {
   return (
-    <main className="bg-white w-full max-w-4xl grid md:grid-cols-2 rounded-2xl overflow-clip">
+    <main className="bg-white w-full max-w-4xl md:mx-4 grid md:grid-cols-2 md:rounded-2xl md:overflow-clip">
       <Form />
-      <div className="bg-slate-900 text-white rounded-bl-[3rem]">
-        {/* <EmptyResults /> */}
-        <Results />
+      <div className="bg-slate-900 text-white md:rounded-bl-[3rem]">
+        <EmptyResults />
+        {/* <Results /> */}
       </div>
     </main>
   );
