@@ -4,8 +4,8 @@ type FormHeaderProps = {
 
 export default function FormHeader({ handleClearForm }: FormHeaderProps) {
   return (
-    <div className="flex justify-between items-center my-8">
-      <h1 className="font-bold text-lg">Mortgage Calculator</h1>
+    <div className="flex flex-col justify-between items-start gap-2 md:items-center my-8 md:flex-row">
+      <h1 className="font-bold text-xl md:text-lg">Mortgage Calculator</h1>
       <button
         onClick={handleClearForm}
         className="text-sm underline text-slate-700 hover:text-slate-900"

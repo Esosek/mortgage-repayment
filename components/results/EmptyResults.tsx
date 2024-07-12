@@ -10,7 +10,7 @@ export default function EmptyResults() {
         alt="Illustration of empty calculator"
         className="max-w-36"
       />
-      <h2 className="font-bold text-lg my-4">Results shown here</h2>
+      <h2 className="font-bold text-xl md:text-lg my-4">Results shown here</h2>
       <p className="text-sm text-slate-300">
         Complete the form and click &quot;calculate repayments&quot; to see what
         your monthly repayments would be.
