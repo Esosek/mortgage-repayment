@@ -16,6 +16,7 @@ const config: Config = {
       'slate-500': ' hsl(200, 26%, 54%)',
       'slate-700': 'hsl(200, 24%, 40%)',
       'slate-900': 'hsl(202, 55%, 16%)',
+      'slate-950': 'hsl(202, 55%, 12%)',
     },
     extend: {
       fontWeight: {
