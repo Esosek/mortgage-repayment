@@ -9,6 +9,7 @@ export default function EmptyResults() {
         src={calcImage}
         alt="Illustration of empty calculator"
         className="max-w-36"
+        priority
       />
       <h2 className="font-bold text-xl md:text-lg my-4">Results shown here</h2>
       <p className="text-sm text-slate-300">
