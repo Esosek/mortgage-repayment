@@ -4,7 +4,6 @@ type CustomNumberInputProps = {
   children: ReactNode;
   name: string;
   metric: string;
-  initialValue?: number;
   step?: string;
   isMetricLeft?: boolean;
 };
@@ -13,7 +12,6 @@ export default function CustomNumberInput({
   children,
   name,
   metric,
-  initialValue = 0,
   step = "1",
   isMetricLeft = true,
 }: CustomNumberInputProps) {
@@ -36,7 +34,7 @@ export default function CustomNumberInput({
           step={step}
           name={name}
           id={name}
-          defaultValue={initialValue}
+          required
           className="w-full focus:outline-none px-4 font-bold"
         />
       </div>

@@ -1,20 +1,28 @@
 "use client";
-import { FormEvent } from "react";
-import SubmitButton from "./SubmitButton";
+import Image from "next/image";
+import { useFormState } from "react-dom";
+import { FormEvent, useState } from "react";
 
 import iconCalculator from "@/assets/images/icon-calculator.svg";
-import Image from "next/image";
+import SubmitButton from "./SubmitButton";
 import FormHeader from "./FormHeader";
 import CustomNumberInput from "./CustomNumberInput";
 import MortgageTypeInput from "./MortgageTypeInput";
 
+import handleFormSubmit from "@/actions/form-submit";
+
 export default function Form() {
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-  }
+  const [formState, formAction] = useFormState(handleFormSubmit, {
+    result: null,
+    errors: null,
+  });
+
+  const [mortgageType, setMortgageType] = useState<number | null>(null);
+
+  const handleFormReset = (e: FormEvent) => setMortgageType(null);
 
   return (
-    <form onSubmit={handleSubmit} className="px-8">
+    <form action={formAction} onReset={handleFormReset} className="px-8">
       <FormHeader />
 
       <CustomNumberInput metric="£" name="mortgage-amount" step="1000">
@@ -41,10 +49,13 @@ export default function Form() {
         </CustomNumberInput>
       </div>
 
-      <MortgageTypeInput />
+      <MortgageTypeInput
+        activeRadio={mortgageType}
+        setActiveRadio={setMortgageType}
+      />
 
       <SubmitButton>
-        <Image src={iconCalculator} alt="Calculator icon" />
+        <Image src={iconCalculator} alt="Calculator icon" priority />
         Calculate Repayments
       </SubmitButton>
     </form>

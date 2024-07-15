@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { MortgageType } from "@/types/mortgage-type";
 
-export default function MortgageTypeInput() {
-  const [activeRadio, setActiveRadio] = useState<Number | null>();
-  const mortgageTypes = ["Repayment", "Interest Only"];
+type MortgageTypeInputType = {
+  activeRadio: number | null;
+  setActiveRadio: (index: number) => void;
+};
+
+export default function MortgageTypeInput({
+  activeRadio,
+  setActiveRadio,
+}: MortgageTypeInputType) {
+  const mortgageTypeNames = ["Repayment", "Interest Only"];
 
   const handleRadioSelect = (index: number) => setActiveRadio(index);
 
@@ -12,12 +19,12 @@ export default function MortgageTypeInput() {
     <fieldset className="space-y-2 my-2 font-bold">
       <legend className="text-sm text-slate-700">Mortgage Type</legend>
 
-      {mortgageTypes.map((type, index) => (
-        <button
+      {Object.values(MortgageType).map((type, index) => (
+        <label
           key={type}
-          type="button"
+          htmlFor={`mortgage-type-${index + 1}`}
           onClick={() => handleRadioSelect(index)}
-          className={`flex items-center gap-4 w-full border-[1px] py-2 px-4 rounded-md hover:border-lime ${
+          className={`flex items-center gap-4 w-full border-[1px] py-2 px-4 rounded-md hover:border-lime hover:cursor-pointer ${
             activeRadio === index
               ? "border-lime bg-lime/15"
               : "border-slate-500"
@@ -27,9 +34,11 @@ export default function MortgageTypeInput() {
             type="radio"
             id={`mortgage-type-${index + 1}`}
             name="mortgage-type"
-            value={type.toLowerCase()}
+            value={type}
             className="sr-only"
-            defaultChecked={activeRadio === index}
+            required
+            checked={activeRadio === index}
+            onChange={() => handleRadioSelect(index)}
           />
           <div
             className={`flex items-center justify-center size-4 rounded-full border-2 ${
@@ -40,13 +49,8 @@ export default function MortgageTypeInput() {
               <div className="size-2 bg-lime rounded-full"></div>
             )}
           </div>
-          <label
-            htmlFor={`mortgage-type-${index + 1}`}
-            className="pointer-events-none"
-          >
-            {type}
-          </label>
-        </button>
+          <p>{mortgageTypeNames[index]}</p>
+        </label>
       ))}
     </fieldset>
   );
