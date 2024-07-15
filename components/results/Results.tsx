@@ -16,12 +16,16 @@ export default function Results({ results }: ResultsProps) {
 
       <div className="bg-slate-950 rounded-md shadow-lime shadow-[0_-5px_0] mt-10 mb-4 p-6">
         <h3 className="text-sm text-slate-300">Your monthly repayments</h3>
-        <p className="my-6 text-5xl font-bold text-lime">£{results.monthly}</p>
+        <p className="my-6 text-5xl font-bold text-lime">
+          £{results.monthly.toLocaleString("en-GB")}
+        </p>
         <hr className="border-white/15 my-4 md:my-8" />
         <p className="text-sm text-slate-300 my-2">
           Total you&apos;ll repay over the term
         </p>
-        <p className="font-bold text-lg">£{results.overall}</p>
+        <p className="font-bold text-lg">
+          £{results.overall.toLocaleString("en-GB")}
+        </p>
       </div>
     </div>
   );
