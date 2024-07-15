@@ -18,7 +18,7 @@ export default async function handleFormSubmit(
     return { result: null, errors: formErrors };
   }
 
-  return { result: calculateMortgage(formData), errors: formErrors };
+  return { result: calculateMortgage(formData), errors: null };
 }
 
 function validateForm(formData: FormData) {

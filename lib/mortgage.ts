@@ -1,11 +1,8 @@
-type MortgageResult = {
-    monthly: number;
-    overall: number;
-}
+import { MortgageResult } from "@/types/mortgage-result";
 
-export default function calculateMortgage(formData: FormData):MortgageResult {
-    return {
-        monthly: 0,
-        overall: 0,
-    }
+export default function calculateMortgage(formData: FormData): MortgageResult {
+  return {
+    monthly: 0,
+    overall: 0,
+  };
 }

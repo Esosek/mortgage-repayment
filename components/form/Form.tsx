@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useFormState } from "react-dom";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import iconCalculator from "@/assets/images/icon-calculator.svg";
 import SubmitButton from "./SubmitButton";
@@ -10,14 +10,23 @@ import CustomNumberInput from "./CustomNumberInput";
 import MortgageTypeInput from "./MortgageTypeInput";
 
 import handleFormSubmit from "@/actions/form-submit";
+import { MortgageResult } from "@/types/mortgage-result";
 
-export default function Form() {
+type FormType = {
+  onSubmit: (result: MortgageResult | null) => void;
+};
+
+export default function Form({ onSubmit }: FormType) {
   const [formState, formAction] = useFormState(handleFormSubmit, {
     result: null,
     errors: null,
   });
 
   const [mortgageType, setMortgageType] = useState<number | null>(null);
+
+  useEffect(() => {
+    onSubmit(formState.result);
+  }, [onSubmit, formState.result]);
 
   const handleFormReset = (e: FormEvent) => setMortgageType(null);
 
