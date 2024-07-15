@@ -26,7 +26,7 @@ export default function MortgageTypeInput({
           key={type}
           htmlFor={`mortgage-type-${index + 1}`}
           onClick={() => handleRadioSelect(index)}
-          className={`flex items-center gap-4 w-full border-[1px] py-2 px-4 rounded-md hover:border-lime hover:cursor-pointer ${
+          className={`flex items-center gap-4 w-full border-[1px] py-2 px-4 rounded-md hover:border-lime hover:cursor-pointer focus-within:border-lime ${
             activeRadio === index
               ? "border-lime bg-lime/15"
               : "border-slate-500"
