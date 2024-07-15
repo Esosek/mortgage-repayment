@@ -22,11 +22,11 @@ export default function CustomNumberInput({
       <label htmlFor={name} className="text-sm text-slate-700">
         {children}
       </label>
-      <div className="flex border-[1px] border-slate-500 hover:border-slate-900 rounded-md overflow-clip mt-2">
+      <div className="group flex border-[1px] border-slate-500 rounded-md overflow-clip mt-2 hover:border-slate-900 focus-within:border-lime focus-within:hover:border-lime">
         <p
           className={`${
             isMetricLeft ? "" : "order-2"
-          } font-bold text-slate-700 bg-slate-100 py-2 px-3`}
+          } font-bold text-slate-900 bg-slate-100 py-2 px-3 group-focus-within:bg-lime`}
         >
           {metric}
         </p>
