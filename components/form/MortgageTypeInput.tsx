@@ -5,11 +5,13 @@ import { MortgageType } from "@/types/mortgage-type";
 type MortgageTypeInputType = {
   activeRadio: number | null;
   setActiveRadio: (index: number) => void;
+  error?: string | null;
 };
 
 export default function MortgageTypeInput({
   activeRadio,
   setActiveRadio,
+  error = null,
 }: MortgageTypeInputType) {
   const mortgageTypeNames = ["Repayment", "Interest Only"];
 
@@ -36,7 +38,6 @@ export default function MortgageTypeInput({
             name="mortgage-type"
             value={type}
             className="sr-only"
-            required
             checked={activeRadio === index}
             onChange={() => handleRadioSelect(index)}
           />
@@ -52,6 +53,7 @@ export default function MortgageTypeInput({
           <p>{mortgageTypeNames[index]}</p>
         </label>
       ))}
+      {error && <p className="text-xs text-red font-normal">{error}</p>}
     </fieldset>
   );
 }

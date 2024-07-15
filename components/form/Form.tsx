@@ -25,7 +25,12 @@ export default function Form() {
     <form action={formAction} onReset={handleFormReset} className="px-8">
       <FormHeader />
 
-      <CustomNumberInput metric="£" name="mortgage-amount" step="1000">
+      <CustomNumberInput
+        metric="£"
+        name="mortgage-amount"
+        step="1000"
+        error={formState.errors?.amount}
+      >
         Mortgage Amount
       </CustomNumberInput>
 
@@ -34,6 +39,7 @@ export default function Form() {
           metric="years"
           name="mortgage-term"
           step="1"
+          error={formState.errors?.term}
           isMetricLeft={false}
         >
           Mortgage Term
@@ -43,6 +49,7 @@ export default function Form() {
           metric="%"
           name="interest-rate"
           step="0.01"
+          error={formState.errors?.["interest-rate"]}
           isMetricLeft={false}
         >
           Interest Rate
@@ -52,6 +59,7 @@ export default function Form() {
       <MortgageTypeInput
         activeRadio={mortgageType}
         setActiveRadio={setMortgageType}
+        error={formState.errors?.type}
       />
 
       <SubmitButton>
