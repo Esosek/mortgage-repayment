@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="bg-white w-full max-w-4xl md:mx-4 grid md:grid-cols-2 md:rounded-2xl md:overflow-clip">
       <Form onSubmit={handleFormSubmit} />
-      <div className="bg-slate-900 text-white md:rounded-bl-[3rem]">
+      <div className="bg-slate-900 text-white pb-16 md:pb-0 md:rounded-bl-[3rem]">
         {result ? <Results results={result} /> : <EmptyResults />}
       </div>
     </main>

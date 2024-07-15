@@ -6,7 +6,7 @@ type ResultsProps = {
 
 export default function Results({ results }: ResultsProps) {
   return (
-    <div className="py-8 px-6 mb-16 md:p-8 md:mb-0">
+    <div className="py-8 px-6 md:p-8">
       <h2 className="font-bold text-xl md:text-xl mb-4">Your results</h2>
       <p className="text-sm text-slate-300 leading-6">
         Your results are shown below based on the information you provided. To
