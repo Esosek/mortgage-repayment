@@ -13,20 +13,11 @@ export default function Form() {
     e.preventDefault();
   }
 
-  function handleClearForm() {
-    console.log("Form cleared");
-  }
-
   return (
     <form onSubmit={handleSubmit} className="px-8">
-      <FormHeader handleClearForm={handleClearForm} />
+      <FormHeader />
 
-      <CustomNumberInput
-        metric="£"
-        name="mortgage-amount"
-        initialValue={300000}
-        step="1000"
-      >
+      <CustomNumberInput metric="£" name="mortgage-amount" step="1000">
         Mortgage Amount
       </CustomNumberInput>
 
@@ -34,7 +25,6 @@ export default function Form() {
         <CustomNumberInput
           metric="years"
           name="mortgage-term"
-          initialValue={25}
           step="1"
           isMetricLeft={false}
         >
@@ -44,7 +34,6 @@ export default function Form() {
         <CustomNumberInput
           metric="%"
           name="interest-rate"
-          initialValue={5.25}
           step="0.01"
           isMetricLeft={false}
         >
